@@ -1,0 +1,224 @@
+/* ===== BASIC CSS RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+/* ===== ROOT CONFIG ===== */
+:root {
+  font-size: 62.5%;
+  --ff-primary: 'Roboto', sans-serif;
+
+  --ff-rick: 'Rick e Morty', sans-serif;
+  --bg-primary-color: #000000;
+  --bg-secondary-color: #5e5e5e4b;
+  --text-color: #ffffff;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== FONT ===== */
+@font-face {
+  font-family: 'Rick e Morty';
+  src: url(./assets/fonts/get_schwifty.ttf);
+}
+
+/* ===== BASE ===== */
+.hide{
+  display: none;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--bg-primary-color);
+}
+
+/* ===== PAGE ===== */
+#page {
+  max-width: 120rem;
+  min-height: 100vh;
+  margin: 0 auto 2rem;
+}
+
+/* ===== HERO ===== */
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem;
+
+  margin: 1rem 0 3.2rem 0;
+}
+
+.logo h1 {
+  font-family: var(--ff-rick);
+  color: greenyellow;
+
+  font-size: clamp(4rem, 3.5rem + 3.5vw, 6rem);
+
+  line-height: 8rem;
+
+  max-width: 40rem;
+  text-align: center;
+}
+
+.logo img {
+  width: 25rem;
+  border-radius: 50%;
+}
+
+/* ===== NEXT AND PREVIEWS PAGE ===== */
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 25rem;
+
+  margin: 2rem auto 0;
+}
+
+.search p{
+  font-size: 2rem;
+  font-weight: bold;
+  color: greenyellow;
+}
+
+.search button {
+  background-color: transparent;
+  
+  color: rgb(122, 11, 11);
+  font-size: 10rem;
+  line-height: 8rem;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition: all 200ms;
+}
+
+.search button:hover {
+  color: rgb(224, 4, 4);
+  transform: scale(1.2);
+}
+
+.down-page{
+  animation: leftToRight 900ms;
+}
+
+.down-page2{
+  animation: leftToRight 900ms;
+}
+.next-page {
+  animation: rightToLeft 900ms;
+}
+
+/* ========== MAIN ============ */
+main {
+  display: flex;
+  justify-content: center;
+  font-family: var(--ff-primary);
+}
+
+/* ===== SECTION CARDS ===== */
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  padding: 2rem 0;
+}
+
+/* ===== CARD ===== */
+.card {
+  background-color: var(--bg-secondary-color);
+  box-shadow: 0 0 1.2rem 0 greenyellow;
+  color: var(--text-color);
+
+  border-radius: 1.2rem;
+}
+
+ .card-image img {
+   width: 100%;
+   border-radius: 1.2rem 1.2rem 0 0;
+} 
+
+.card-info{
+  width: 25rem;
+}
+
+ .card-info .section {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+} 
+
+.card-info h2 {
+  color: rgb(175, 4, 255);
+}
+
+.card-info .scale-gray {
+  margin-bottom: 1.2rem;
+  color: gray;
+  font-weight: bold;
+}
+
+.card-info a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* ===== RESPONSIVE / MEDIA QUERIES ===== */
+@media (min-width: 1185px){
+  .card-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 40em) {
+  .logo{
+    flex-direction: row;
+  }
+ 
+  .card {
+    display: flex;
+    height: 30rem;
+  }
+
+  .card-image img {
+    border-radius: 1.2rem 0 0 1.2rem;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes rightToLeft{
+  0%{
+    opacity: 0;
+    transform: translatex(150px)
+  }
+  100%{
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
+
+@keyframes leftToRight{
+  0%{
+    opacity: 0;
+    transform: translatex(-150px)
+  }
+  100%{
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
